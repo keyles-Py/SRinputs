@@ -8,7 +8,7 @@ version = "0.1.0"
 authors = [
   { name="Keiner Mendoza", email="keynerismo@gmail.com" },
 ]
-description = "Una colección de funciones Python útiles para resolver problemas comunes."
+description = "A small Python package that improves the usage of the built-in input() function with functionalities such as static and multiple inputs."
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -18,5 +18,4 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/tu_usuario/tu_paquete"
-Issues = "https://github.com/tu_usuario/tu_paquete/issues"
+Homepage = "https://github.com/keyles-Py/SRinputs"
