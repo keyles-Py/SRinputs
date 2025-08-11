@@ -57,7 +57,6 @@ def StrInput(msg: str = 'Write any string: ', empty_input: bool = False) -> str:
                 continue
             if not text:
                 break  
-            text = int(text)
             break
         except KeyboardInterrupt:
             print(msgs[0])
@@ -89,7 +88,7 @@ def FloatInput(msg: str = 'Write a float value: ', ermsg: str = 'is not float.',
                 continue
             if not text:
                 break  
-            text = int(text)
+            text = float(text)
             break
         except ValueError:
             print(f'{text} {ermsg}')
@@ -125,7 +124,9 @@ def multiInput(num: int, msg: str = 'Write any string: ', empty_input: bool = Fa
                     print(emptymsg)
                     continue
                 if not text:
-                    break  
+                    inputs.append('')
+                    aux += 1
+                    continue  
                 inputs.append(text)
                 aux += 1
         except KeyboardInterrupt:
