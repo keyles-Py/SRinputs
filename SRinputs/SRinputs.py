@@ -1,25 +1,28 @@
 emptymsg = 'Write something'
 msgs = ["That's not funny!", "This is not correct!"]
 
-def IntInput(msg: str = 'Write an integer value: ', ermsg: str = 'is not integer.') -> int:
+def IntInput(msg: str = 'Write an integer value: ', ermsg: str = 'is not integer.', empty_input: bool = False) -> int:
     """
     Prompts the user for input and validates it as an integer.
 
     The function repeatedly asks for input until a valid integer is provided.
-    It does not allow empty inputs.
+    It does not allow empty inputs by default.
 
     Args:
-        msg (str): The message to display to the user.
-        ermsg (str): The error message to display on invalid input.
+        msg (str, optional): The message to display to the user.
+        ermsg (str, optional): The error message to display on invalid input.
+        empty-input (bool, optional): If True, allows empty inputs. Defaults to False.
     Returns:
         int: The integer value of the valid input.
     """
     while True:
         try:
             text = input(msg)
-            if len(text) == 0:
+            if not empty_input and not text:
                 print(emptymsg)
                 continue
+            if not text:
+                break  
             text = int(text)
             break
         except ValueError:
@@ -33,23 +36,28 @@ def IntInput(msg: str = 'Write an integer value: ', ermsg: str = 'is not integer
             continue       
     return text
 
-def StrInput(msg: str = 'Write any string: ') -> str:
+def StrInput(msg: str = 'Write any string: ', empty_input: bool = False) -> str:
     """
     Prompts the user for input and validates it as a non-empty string.
 
     The function repeats the prompt until a non-empty string is provided.
+    It does not allow empty inputs by default.
 
     Args:
         msg (str): The message to display to the user.
+        empty-input (bool): If True, allows empty inputs. Defaults to False.
     Returns:
         str: The validated non-empty input string.
     """
     while True:
         try:
             text = input(msg)
-            if len(text) == 0:
+            if not empty_input and not text:
                 print(emptymsg)
                 continue
+            if not text:
+                break  
+            text = int(text)
             break
         except KeyboardInterrupt:
             print(msgs[0])
@@ -59,26 +67,29 @@ def StrInput(msg: str = 'Write any string: ') -> str:
             continue       
     return text
 
-def FloatInput(msg: str = 'Write a float value: ', ermsg: str = 'is not float.') -> float:
+def FloatInput(msg: str = 'Write a float value: ', ermsg: str = 'is not float.', empty_input: bool = False) -> float:
     """
     Prompts the user for input and validates it as a float.
 
     The function repeatedly asks for input until a valid float is provided.
-    It does not allow empty inputs.
+    It does not allow empty inputs by default.
 
     Args:
         msg (str): The message to display to the user.
         ermsg (str): The error message to display on invalid input.
+        empty-input (bool): If True, allows empty inputs. Defaults to False.
     Returns:
         float: the float value of the input.
     """
     while True:
         try:
             text = input(msg)
-            if len(text) == 0:
+            if not empty_input and not text:
                 print(emptymsg)
                 continue
-            text = float(text)
+            if not text:
+                break  
+            text = int(text)
             break
         except ValueError:
             print(f'{text} {ermsg}')
@@ -91,16 +102,16 @@ def FloatInput(msg: str = 'Write a float value: ', ermsg: str = 'is not float.')
             continue       
     return text
 
-def multiInput(num: int, msg: str = 'Write any string: ') -> list:
+def multiInput(num: int, msg: str = 'Write any string: ', empty_input: bool = False) -> list:
     """
     Prompts the user for a specified number of inputs and returns them as a list.
 
     This function asks for 'n' inputs and collects them into a list.
-    Empty inputs are allowed.
+    It does not allow empty inputs by default.
 
     Args:
         msg (str): the message display for each input prompt.
-
+        empty-input (bool): If True, allows empty inputs. Defaults to False.
     Returns:
         list[str]: A list containing all the input strings.
     """
@@ -110,6 +121,11 @@ def multiInput(num: int, msg: str = 'Write any string: ') -> list:
         try:
             while aux < num:
                 text = input(msg)
+                if not empty_input and not text:
+                    print(emptymsg)
+                    continue
+                if not text:
+                    break  
                 inputs.append(text)
                 aux += 1
         except KeyboardInterrupt:
