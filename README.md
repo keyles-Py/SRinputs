@@ -28,7 +28,7 @@ These functions will repeatedly prompt the user until a valid input of the reque
 from SRinputs import IntInput
 
 # Prompt for an integer, does not allow empty input by default
-age = IntInpit("Please enter your age: ")
+age = IntInput("Please enter your age: ")
 print(f"Your age is: {age}")
 ```
 
