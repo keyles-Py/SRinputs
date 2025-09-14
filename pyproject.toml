@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SRinputs"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Keiner Mendoza", email="keynerismo@gmail.com" },
 ]
@@ -15,6 +15,9 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+]
+dependencies = [
+    "fast_langdetect",
 ]
 
 [project.urls]
