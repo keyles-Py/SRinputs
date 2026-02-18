@@ -19,7 +19,7 @@ def IntInput(msg: str = 'Write an integer value: ', ermsg: str = None, empty_inp
     Args:
         msg (str, optional): The message to display to the user.
         ermsg (str, optional): The error message to display on invalid input.
-        empty-input (bool, optional): If True, allows empty inputs. Defaults to False.
+        empty_input (bool, optional): If True, allows empty inputs. Defaults to False.
     Returns:
         int: The integer value of the valid input.
     """
@@ -66,7 +66,7 @@ def StrInput(msg: str = 'Write any string: ', empty_input: bool = False) -> str:
 
     Args:
         msg (str): The message to display to the user.
-        empty-input (bool): If True, allows empty inputs. Defaults to False.
+        empty_input (bool): If True, allows empty inputs. Defaults to False.
     Returns:
         str: The validated non-empty input string.
     """
@@ -106,7 +106,7 @@ def FloatInput(msg: str = 'Write a float value: ', ermsg: str = None, empty_inpu
     Args:
         msg (str): The message to display to the user.
         ermsg (str): The error message to display on invalid input.
-        empty-input (bool): If True, allows empty inputs. Defaults to False.
+        empty_input (bool): If True, allows empty inputs. Defaults to False.
     Returns:
         float: the float value of the input.
     """
@@ -153,7 +153,7 @@ def multiInput(num: int, msg: str = 'Write any string: ', empty_input: bool = Fa
     Args:
         num (int): the number of inputs
         msg (str): the message display for each input prompt.
-        empty-input (bool): If True, allows empty inputs. Defaults to False.
+        empty_input (bool): If True, allows empty inputs. Defaults to False.
     Returns:
         list[str]: A list containing all the input strings.
     """

@@ -4,21 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SRinputs"
-version = "0.1.1"
+version = "0.2.0"
 authors = [
   { name="Keiner Mendoza", email="keynerismo@gmail.com" },
 ]
-description = "A small Python package that improves the usage of the built-in input() function with functionalities such as static and multiple inputs."
+description = "A Python suite for safe user inputs (SR) and automated fake data simulation (FR) using Faker."
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Intended Audience :: Education",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
     "fast_langdetect",
+    "faker",
 ]
 
 [project.urls]
 Homepage = "https://github.com/keyles-Py/SRinputs"
+Bug_Tracker = "https://github.com/keyles-Py/SRinputs/issues"

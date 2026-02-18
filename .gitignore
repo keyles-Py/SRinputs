@@ -1,4 +1,4 @@
 # Archivos de empaquetado de Python
 dist/
 SRinputs.egg-info/
-SRinputs/FRinputs.py
+venv/

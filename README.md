@@ -1,61 +1,75 @@
-# SRinputs - Static Repetitive inputs
+# SRinputs - Smart & Reliable Inputs Suite
 ![License](https://img.shields.io/github/license/keyles-Py/SRinputs)
 
-A small Python package that improves the usage of the built-in input() function with functionalities such as static and multiple inputs.
+A comprehensive Python suite designed to supercharge the built-in `input()` function. Whether you need to validate real user data or simulate fake information for testing, **SRinputs** has you covered.
 
-## Instalation
-
-You can install it using pip.
+## Installation
 
 ```bash
 pip install SRinputs
 ```
+## Modules
+The package is now divided into two specialized modules:
+1. **SRinputs** (Static & Repetitive)Focuses on safe data collection from real users. It handles validation, language detection, and prevents common crashes.
+* Type Validation: Supports int, float, and str.
 
-## Features
+* Safety: Catch KeyboardInterrupt and EOFError gracefully.
 
-***Type validation:** Requests and validates inputs such as `int`, `float` or `str`.
-***Error handling:** Catch `KeyboardInterrupt` and `EOFError` in a user friendly way, allowing the program to continue.
-*** Mandatory entries:** Ensures that the user enters a valid value before continuing, avoiding empty entries by default.
-*** Multiple entries:** Requests a specific number of entries and returns them in a list.
+* Persistence: Mandatory entries by default (no more empty inputs by mistake).
 
-## Usage and Examples
-Here are some examples of how to use the functions to get validated inputs.
+* Bulk Collection: multiInput to gather lists of data easily.
 
-## Getting a Single Validated Input
-These functions will repeatedly prompt the user until a valid input of the requested data type is provided.
+2. **FRinputs** (Fake & Random) Designed for developers and students. It "mocks" inputs using the Faker library, allowing you to test your classes and functions without typing a single word in the terminal.
 
-```bash
-from SRinputs import IntInput
+* Zero-Typing Testing: Simulates input automatically.
 
-# Prompt for an integer, does not allow empty input by default
+* Realistic Data: Names (by gender), Emails, URLs, IDs, and Social Media Handles.
+
+* Customizable: Supports custom prompts and formats.
+
+## Usage Examples
+
+Safe User Input (SR)
+```
+from SRinputs.SRinputs import IntInput, multiInput
+
+# Validates an integer
+
 age = IntInput("Please enter your age: ")
-print(f"Your age is: {age}")
+
+# Collects exactly 5 names in a list
+
+names = multiInput(5, "Enter a student name: ")
 ```
+## Automated Testing / Mocking (FR)
+Ideal for testing your classes without manual input:
 
-```bash
-from SRinputs import StrInput
-
-# Prompt for a string, does not allow empty input by default
-name = StrInput("Please enter your name: ")
-print(f"Your name is: {name}")
 ```
+from SRinputs.FRinputs import FRNameInput, FRHandleInput, FREmailInput
 
-```bash
-from SRinputs import FloatInput
+class User:
+    def __init__(self, name, handle, email):
+        self.name = name
+        self.handle = handle
+        self.email = email
 
-# Prompt for a float, does not allow empty input by default
-price = FloatInput("Please enter the price: ")
-print(f"The price is: {price}")
+# No terminal typing required! Data is generated and "injected" automatically.
+user1 = User(
+    name = FRNameInput(),
+    handle = FRHandleInput(),
+    email = FREmailInput()
+)
+
+print(f"Created: {user1.name} ({user1.handle})")
 ```
-## Getting Multiple Inputs
+## Supported Types (FR Module)
 
-This function ensures a specific number of valid inputs are collected before continuing.
 
-```bash
-from SRinputs import multiInput
-
-# Prompt for 'n' inputs, does not allow empty input by default
-names = multiInput(5, "Please enter one name: ")
-print(f"The names are: {names}")
-```
-
+| Function | Description |
+|---|---|
+| FRNameInput | Generates names (supports 'male', 'female', 'nonbinary'). |
+| FRDateInput | enerates dates with multiple format options (0-3). |
+| FRHandleInput | Generates social media handles like @name_123. |
+| FRIdInput | Generates IDs (8-10 digits). |
+| FREmailInput | Generates random email addresses. |
+| FRUrlInput | Generates fake website links. |
